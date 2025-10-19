@@ -1,0 +1,61 @@
+==============================
+ DAX MEASURES — WORLD ENERGY CONSUMPTION ANALYSIS
+==============================
+
+Author: Assiya Belkheiri
+Project: World Energy Consumption Dashboard (Power BI)
+Description: This file includes all DAX measures used to build KPIs and visualizations.
+
+----------------------------------------------------
+1️⃣ TOTAL ENERGY CONSUMPTION
+----------------------------------------------------
+Total Energy =
+ SUM('World Energy Consumption'[primary_energy_consumption])
+
+----------------------------------------------------
+2️⃣ ENERGY PER CAPITA
+----------------------------------------------------
+Energy per Capita = 
+DIVIDE(
+    SUM('World Energy Consumption'[primary_energy_consumption]),
+    SUM('World Energy Consumption'[population]),
+    0
+)
+
+----------------------------------------------------
+3️⃣ RENEWABLE ENERGY SHARE (%)
+----------------------------------------------------
+Renewable Share % = 
+AVERAGE('World Energy Consumption'[renewables_share_energy])
+
+----------------------------------------------------
+4️⃣ ENERGY PER GDP
+----------------------------------------------------
+GDP per Capita = 
+DIVIDE(
+    SUM('World Energy Consumption'[gdp]),
+    SUM('World Energy Consumption'[population]),
+    0
+)
+
+----------------------------------------------------
+5️⃣ Energy Intensity (Energy per GDP)
+----------------------------------------------------
+Energy Intensity = 
+DIVIDE(
+    SUM('World Energy Consumption'[primary_energy_consumption]),
+    SUM('World Energy Consumption'[gdp]),
+    0
+)
+
+----------------------------------------------------
+6️⃣  Energy Growth (%)
+----------------------------------------------------
+Energy Growth (%) =
+VAR CurrentYear = SELECTEDVALUE('World Energy Consumption'[year])
+VAR PrevYear = CurrentYear - 1
+VAR CurrentValue = CALCULATE([Total Energy], 'World Energy Consumption'[year] = CurrentYear)
+VAR PrevValue = CALCULATE([Total Energy], 'World Energy Consumption'[year] = PrevYear)
+RETURN
+DIVIDE(CurrentValue - PrevValue, PrevValue, 0) * 100
+
