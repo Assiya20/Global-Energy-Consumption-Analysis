@@ -34,4 +34,17 @@ Energy per Capita = DIVIDE([Total Energy], SUM(Energy[population]))
 Energy per GDP = DIVIDE([Total Energy], SUM(Energy[gdp]))
 Energy Growth % = DIVIDE([Total Energy] - CALCULATE([Total Energy], PREVIOUSYEAR(Energy[year])), CALCULATE([Total Energy], PREVIOUSYEAR(Energy[year])))
 
+---
+
+## Dashboard Sections & Insights
+ 1. Total Energy by Country: An interactive world map showing how energy consumption differs by country.
+
+ 2. Energy per GDP by Country: A donut chart comparing energy efficiency across nations — highlighting which economies consume more energy per unit of GDP.
+
+ 3. Total Energy by Year: A line chart visualizing the global energy growth trend since 1960 — showing steady growth with small fluctuations.
+
+ 4. Hydro vs Renewable Energy Consumption: A bar chart comparing hydroelectric consumption with total renewable energy consumption by region.
+
+ 5. Energy per Capita by Country: A geographical heatmap representing how energy use per person varies globally.
+
 
