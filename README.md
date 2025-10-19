@@ -24,18 +24,6 @@ Performed in **Power Query**:
 - Created new calculated columns for energy per capita and renewable share  
 
 ---
-
-##  DAX Measures
-Some of the key DAX measures created for analysis:
-```DAX
-Total Energy = SUM(Energy[energy_consumption])
-Total Renewable Energy = SUM(Energy[renewables_consumption])
-Energy per Capita = DIVIDE([Total Energy], SUM(Energy[population]))
-Energy per GDP = DIVIDE([Total Energy], SUM(Energy[gdp]))
-Energy Growth % = DIVIDE([Total Energy] - CALCULATE([Total Energy], PREVIOUSYEAR(Energy[year])), CALCULATE([Total Energy], PREVIOUSYEAR(Energy[year])))
-
----
-
 ## Dashboard Sections & Insights
  1. Total Energy by Country: An interactive world map showing how energy consumption differs by country.
 
@@ -46,5 +34,16 @@ Energy Growth % = DIVIDE([Total Energy] - CALCULATE([Total Energy], PREVIOUSYEAR
  4. Hydro vs Renewable Energy Consumption: A bar chart comparing hydroelectric consumption with total renewable energy consumption by region.
 
  5. Energy per Capita by Country: A geographical heatmap representing how energy use per person varies globally.
+    
+##  DAX Measures
+Some of the key DAX measures created for analysis:
+```DAX
+Total Energy = SUM(Energy[energy_consumption])
+Total Renewable Energy = SUM(Energy[renewables_consumption])
+Energy per Capita = DIVIDE([Total Energy], SUM(Energy[population]))
+Energy per GDP = DIVIDE([Total Energy], SUM(Energy[gdp]))
+Energy Growth % = DIVIDE([Total Energy] - CALCULATE([Total Energy], PREVIOUSYEAR(Energy[year])), CALCULATE([Total Energy], PREVIOUSYEAR(Energy[year])))
+
+
 
 
